@@ -17,10 +17,12 @@ public class playerScript : MonoBehaviour
     {
         if(Input.GetKey(KeyCode.UpArrow))
         {
+            if (rb.velocity.y < 0) rb.velocity = new Vector2(0, 0);
             rb.AddForce(new Vector2(0, 5.0f) * 10);
         }
         else if (Input.GetKey(KeyCode.DownArrow))
         {
+            if (rb.velocity.y > 0) rb.velocity = new Vector2(0, 0);
             rb.AddForce(new Vector2(0, -5.0f) * 10);
         }
     }
