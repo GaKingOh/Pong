@@ -28,7 +28,7 @@ public class ballController : MonoBehaviour
         transform.position = Vector2.zero;
         rb.velocity = Vector2.zero;
 
-        rb.AddForce(new Vector2(100f * direction[Random.Range(0, 2)], Random.Range(80, 100)) * 2);
+        rb.AddForce(new Vector2(100f * direction[Random.Range(0, 2)], direction[Random.Range(0,2)] * Random.Range(80, 100)) * 2);
     }
     void Update()
     {
