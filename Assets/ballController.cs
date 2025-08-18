@@ -21,7 +21,7 @@ public class ballController : MonoBehaviour
     {
         ad.Play();
         if (rb.velocity.magnitude > 15) return; // 공의 최대 속도
-        rb.velocity *= 1.05f;
+        rb.velocity *= 1.1f;
     }
     void ResetBall()
     {

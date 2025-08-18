@@ -8,16 +8,21 @@ public class MyPongAgent : Agent
     Rigidbody2D rb;
     public Transform ball;
     GameObject ball2;
+    Transform bot;
+    int ballCollisionCount = 0;
     public override void Initialize()
     {
         rb = GetComponent<Rigidbody2D>();
         rb.constraints = RigidbodyConstraints2D.FreezePositionX | RigidbodyConstraints2D.FreezeRotation;
+        bot = GameObject.Find("bot").GetComponent<Transform>();
     }
 
     public override void OnEpisodeBegin()
     {
         // 에이전트 초기 위치 리셋
-        transform.position = new Vector3(-7f, 0f, 0f);
+        ballCollisionCount = 0;
+        transform.position = new Vector3(7f, 0f, 0f);
+        bot.transform.position = new Vector3(-7f, 0f, 0f);    
         rb.velocity = Vector2.zero;
 
         // 공도 리셋하는 부분은 별도 공 스크립트에서 처리하는 게 좋음
@@ -35,13 +40,13 @@ public class MyPongAgent : Agent
         // 공 속도 (x, y)
         sensor.AddObservation(ball.GetComponent<Rigidbody2D>().velocity.x);
         sensor.AddObservation(ball.GetComponent<Rigidbody2D>().velocity.y);
+
     }
 
     public override void OnActionReceived(ActionBuffers actions)
-    {
-        Debug.Log("안녕");
+    {   
         float moveY = Mathf.Clamp(actions.ContinuousActions[0], -1f, 1f);
-        rb.velocity = new Vector2(0, moveY * 5f);
+        rb.velocity = new Vector2(0, moveY * 5.5f);
 
         // 계속 움직이면 작은 보상 주기
         AddReward(0.001f);
@@ -63,6 +68,14 @@ public class MyPongAgent : Agent
     {
         if (collision.gameObject.CompareTag("ball"))
         {
+            ballCollisionCount++;
+            {
+                if(ballCollisionCount>50)
+                {
+                    ball.position = new Vector3(-11.0f, 0f, 0f);
+                    EndEpisode();
+                }
+            }
             AddReward(1.0f); // 공을 튕기면 큰 보상
         }
     }
@@ -70,8 +83,13 @@ public class MyPongAgent : Agent
     {
         if (ball.position.x < -10f)  // 공이 왼쪽으로 나갔을 때
         {
-            AddReward(-1.0f);  // 실패 보상
+            AddReward(2.0f);  // 성공 보상
             EndEpisode();      // 에피소드 종료
+        }
+        else if(ball.position.x > 10f)
+        {
+            AddReward(-10.0f); // 실패 보상
+            EndEpisode();
         }
     }
 

@@ -547,7 +547,7 @@ Transform:
   m_GameObject: {fileID: 438046935}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -9, y: 0, z: 0}
+  m_LocalPosition: {x: 9, y: 0, z: 0}
   m_LocalScale: {x: 0.5, y: 3, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -640,7 +640,7 @@ MonoBehaviour:
   agentParameters:
     maxStep: 0
   hasUpgradedFromAgentParameters: 1
-  MaxStep: 1000
+  MaxStep: 0
   ball: {fileID: 158979501}
 --- !u!114 &438046941
 MonoBehaviour:
@@ -664,9 +664,9 @@ MonoBehaviour:
     VectorActionDescriptions: []
     VectorActionSpaceType: 1
     hasUpgradedBrainParametersWithActionSpec: 1
-  m_Model: {fileID: 0}
-  m_InferenceDevice: 0
-  m_BehaviorType: 0
+  m_Model: {fileID: 5022602860645237092, guid: bc153bdf632e93b47b1ee47e4a79a4f4, type: 3}
+  m_InferenceDevice: 1
+  m_BehaviorType: 2
   m_BehaviorName: MyPongAgent
   TeamId: 0
   m_UseChildSensors: 1
@@ -685,7 +685,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3a5c9d521e5ef4759a8246a07d52221e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  DecisionPeriod: 5
+  DecisionPeriod: 1
   TakeActionsBetweenDecisions: 1
 --- !u!1 &519420028
 GameObject:
@@ -698,7 +698,6 @@ GameObject:
   - component: {fileID: 519420032}
   - component: {fileID: 519420031}
   - component: {fileID: 519420029}
-  - component: {fileID: 519420033}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -780,18 +779,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &519420033
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 519420028}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1d3c36a15194df945983ef8eb11f53c1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &679880010
 GameObject:
   m_ObjectHideFlags: 0
@@ -873,7 +860,7 @@ Transform:
   m_GameObject: {fileID: 679880010}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 9, y: 0, z: 0}
+  m_LocalPosition: {x: -9, y: 0, z: 0}
   m_LocalScale: {x: 0.5, y: 3, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -960,7 +947,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 679880010}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 59481ad875dae0147a1ce22bf5e2f039, type: 3}
+  m_Script: {fileID: 11500000, guid: def49a323178b5d499a14c6313d94ffb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &710186798
