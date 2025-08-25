@@ -1,7 +1,7 @@
 behaviors:
   MyPongAgent:   
     trainer_type: ppo
-    max_steps: 8000000
+    max_steps: 20000000
     time_horizon: 64
     summary_freq: 1000
     hyperparameters:

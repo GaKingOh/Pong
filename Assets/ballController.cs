@@ -1,7 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using UnityEngine.SceneManagement;
 public class ballController : MonoBehaviour
 {
     Rigidbody2D rb;
@@ -45,6 +45,10 @@ public class ballController : MonoBehaviour
             else
             {
                 gameDirector.GetComponent<gameDirector>().PlusPlayer();
+            }
+            if(SceneManager.GetActiveScene().name=="OhkingScene")
+            {
+                gameDirector.GetComponent<gameDirector>().SetPosition();
             }
             ResetBall();
         }

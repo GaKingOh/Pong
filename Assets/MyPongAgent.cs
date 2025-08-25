@@ -21,8 +21,8 @@ public class MyPongAgent : Agent
     {
         // 에이전트 초기 위치 리셋
         ballCollisionCount = 0;
-        transform.position = new Vector3(7f, 0f, 0f);
-        bot.transform.position = new Vector3(-7f, 0f, 0f);    
+        transform.position = new Vector3(9f, 0f, 0f);
+        bot.transform.position = new Vector3(-9f, 0f, 0f);    
         rb.velocity = Vector2.zero;
 
         // 공도 리셋하는 부분은 별도 공 스크립트에서 처리하는 게 좋음
@@ -70,7 +70,7 @@ public class MyPongAgent : Agent
         {
             ballCollisionCount++;
             {
-                if(ballCollisionCount>50)
+                if(ballCollisionCount>20)
                 {
                     ball.position = new Vector3(-11.0f, 0f, 0f);
                     EndEpisode();

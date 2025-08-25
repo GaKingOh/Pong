@@ -12,6 +12,6 @@ public class MainController : MonoBehaviour
     }
     public void playMlAgent()
     {
-        SceneManager.LoadScene("MlScene");
+        SceneManager.LoadScene("MlScene2");
     }
 }

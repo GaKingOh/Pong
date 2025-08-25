@@ -18,6 +18,7 @@ public class leftbotController : MonoBehaviour
     void Update()
     {
         if (ball == null) return;
+        if (Time.timeScale == 0) return;
         if (ball.transform.position.x > -3)
         {
             Vector2 tmp = rb.velocity;

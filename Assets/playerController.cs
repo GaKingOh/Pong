@@ -9,6 +9,7 @@ public class PlayerController : MonoBehaviour
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
+        rb.collisionDetectionMode = CollisionDetectionMode2D.Continuous;
     }
 
     // Update is called once per frame
@@ -16,7 +17,7 @@ public class PlayerController : MonoBehaviour
     {
         if (Input.GetKey(KeyCode.UpArrow))
         {
-            if (rb.velocity.y >= 7) rb.velocity += rb.velocity * 0.05f;
+            if (rb.velocity.y >= 7) rb.velocity += rb.velocity * 0.09f;
             else
             {
                 rb.velocity += new Vector2(0, 3f);
@@ -27,6 +28,6 @@ public class PlayerController : MonoBehaviour
             if (rb.velocity.y <= -7) rb.velocity += rb.velocity * 0.05f;
             else rb.velocity += new Vector2(0, -3.0f);
         }
-        else rb.velocity -= 0.02f * rb.velocity;
+        else rb.velocity = rb.velocity * 0.95f;
     }
 }
